@@ -1,0 +1,29 @@
+#! /usr/bin/env python
+import json
+import datetime
+import requests
+import sys
+
+def update(total=None):
+    cap = raw_input("Current cap: ")
+    time = datetime.datetime.today().strftime("%I:%M%p %B %d %Y")
+    if total is None:
+        js = json.dumps({"data": cap, "time": time})
+    else:
+        js = json.dumps({"data": cap, "time": time, "total": total})
+    rs = requests.post("http://raspberrypi/update",data=js)
+    print "Response: ", rs.status.text
+
+def updateTotal():
+    total = raw_input("Total Cap: ")
+    update(total)
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "cap":
+            update()
+        elif sys.argv[1] == "total":
+            updateTotal()
+        else:
+            print "Update tool for data cap webserver:\nCommands:\ncap\tupdating current cap.\ntotal\tupdating total cap limit."

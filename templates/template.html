@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <title>Current Data Cap</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row center">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Data Cap</h1>
+	<h2>{{ percent }}%  <small>Current of total</small></h2>
+        <h2>{{ allowed }}%  <small>Allowed up to today</small></h2>
+	<h2>{{ cap }}/{{ total }} GB</h2>
+	<hr />
+	<h4>{{ date }} <small>Last Checked</small></h4>
+	<h4>{{ today }} <small>Today</small></h4>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

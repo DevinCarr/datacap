@@ -1,0 +1,4 @@
+#!/bin/bash
+# Simple bash script to initalize the server in tmux in the background.
+
+tmux new -d -s webserver 'python ./server.py'
