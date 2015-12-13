@@ -3,6 +3,8 @@ import datetime
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
+TOTAL = 450.0
+
 # Entry point for application
 @app.route("/")
 def index():
@@ -14,7 +16,6 @@ def index():
     _date = data['time']
     _percent = ("{0:.1f}").format(float(data['data'])/4.2)
     _cap = ("{0:.1f}").format(float(data['data']))
-    _total = data['total']
     return render_template('template.html', date=_date, percent=_percent, cap=_cap, total=TOTAL, today=_today, allowed=_monthlyPercentage)
 
 @app.route("/update", methods=['POST'])
